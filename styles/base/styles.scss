@@ -1,0 +1,72 @@
+@import '../abstracts/';
+@import './typography';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // This defines what 1rem is 10px
+  font-size: 62.5%;
+
+  @include responsive(tablet){
+    font-size: 56.25%; // 1rem = 9px
+  }
+
+  @include responsive(mobile){
+    font-size: 43.75%; // 1rem = 7px
+  }
+
+  @include responsive(pc){
+    font-size: 87.5%; // 1rem = 12px
+  }
+}
+
+body {
+  box-sizing: border-box;
+  line-height: 1.5;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+input,button {
+  outline: none;
+}
+
+h1,h2,h3 {
+  font-family: $font-family-title;
+  font-size: $font-title;
+  font-weight: $font-bold;
+}
+
+p,label,small,span,a,input,textarea {
+  font-family: $font-family-text;
+  font-size: $font-default;
+  font-weight: $font-slim;
+}
+
+.heading {
+  font-family: $font-family-title;
+  font-size: $font-family-title;
+  font-weight: $font-bold;
+}
+
+img {
+  display: block;
+  width: 100%;
+}

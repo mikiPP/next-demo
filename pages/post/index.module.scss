@@ -1,0 +1,84 @@
+@import '../../styles/';
+
+.post-page {
+  @include page-default;
+
+  .post__img {
+    height: 50vh;
+  }
+
+  .post {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: $size-lg $size-xl;
+
+    @include responsive(tablet){
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2,1fr);
+    }
+
+    &__created-by{
+      display: flex;
+      column-gap: $size-lg;
+      padding: $size-xl 0;
+
+      & > p:first-child{
+        color: $gray-dark;
+      }
+
+      & > p:nth-child(2) {
+        font-weight: $font-bold;
+      }
+    }
+
+    &__title {
+      max-width: $max-width-text;
+    }
+    
+    &__share {
+      border: 2px solid $accent;
+      border-radius: $size-lg;
+      overflow: hidden;
+    }
+    
+    &__share-title {
+      width: 100%;
+      background-color: $accent;
+      color: $white;
+      padding: $size-sm $size-lg;
+      font-family: $font-family-title;
+    }
+    
+    &__share-options {
+      padding: $size-lg $size-lg 0;
+      display: flex;
+      align-items: center;
+      column-gap: $size-lg;
+
+      svg  {
+        font-size: $font-default;
+        cursor: pointer;
+        transition: all $transition-point-five;
+      }
+    }
+
+    &__share-button{
+      margin-right: auto;
+    }
+
+    &__share-like {
+      color: red;
+
+      &:hover{
+        transform: scale(1.5);
+      }
+    }
+
+    &__share-favourite {
+
+      &:hover{
+        color: rgb(233, 218, 12); 
+      }
+    }
+  }
+}

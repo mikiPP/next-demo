@@ -1,0 +1,52 @@
+@import './screens';
+@import './colors';
+@import './sizes';
+
+
+@mixin abs-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin page-default {
+  min-height: 100vh;
+  padding-top: $navbar-height;
+  background-color: $gray-light;
+}
+
+/*
+  $breakpoint argument choices:
+    -small-mobile
+    -mobile-screen
+    -tablet-screen
+    -small-pc
+*/
+@mixin responsive($breakpoint){
+  @if $breakpoint == small-mobile {
+    @media only screen and (max-width:  $small-mobile-screen) { @content };
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width:   $mobile-screen) { @content };
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (max-width: $tablet-screen) { @content };
+  }
+
+  @if $breakpoint == small-pc {
+    @media only screen and (max-width:  $small-pc-screen) { @content };
+  }
+
+  @if $breakpoint == pc {
+    @media only screen and (min-width: $pc-screen) { @content };
+  }
+}

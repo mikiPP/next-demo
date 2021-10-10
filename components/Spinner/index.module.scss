@@ -1,0 +1,58 @@
+@import '../../styles/';
+
+@mixin loader($position, $color) {
+
+  position: absolute;
+  top: $position;
+  left: $position;
+  right: $position;
+  bottom: $position;
+
+  border-left: $size-sm solid $color;
+  border-right: $size-sm solid $color;
+  border-top: $size-sm solid transparent;
+  border-bottom: $size-sm solid transparent;
+
+  border-radius: 50%;
+}
+
+.spinner {
+  margin: 0 auto;
+  width: $size-hundred;
+  height: $size-hundred;
+  position: relative;
+
+
+  &__outer {
+
+    @include loader(0,$accent);
+
+    animation: rotate 1s linear infinite;
+  }
+
+
+  &__middle {
+
+    @include loader(1.5rem,$secondary);
+    animation: rotate 1s linear infinite reverse;
+  }
+
+  &__inner {
+
+    @include loader(3rem, $primary);
+    animation: rotate 1s linear infinite;
+  }
+
+
+  &__center {
+
+    @include abs-center;
+
+    width: 1rem;
+    height: 1rem;
+
+    background-color: $gray;
+
+    border-radius: 50%;
+  }
+}

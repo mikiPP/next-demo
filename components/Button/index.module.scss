@@ -1,0 +1,87 @@
+@import '../../styles/';
+
+.button {
+  padding: $size-md $size-lg;
+  color: $accent;
+  position: relative;
+  transition: all .5s;
+  background-color: transparent;
+  border: none;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    color: $gray;
+  }
+
+
+  @mixin pseudo-line {
+    content: "";
+    display: block;
+    background-color: currentColor;
+    position: absolute;
+    transition: all .5s;
+  }
+
+  &::after{
+    @include pseudo-line;
+    height: 2px;
+    width: 100%;
+    top: 0;
+    left: -100%;
+  }
+
+  &::before{
+    @include pseudo-line;
+    height: 2px;
+    width: 100%;
+    bottom: 0;
+    right: -100%;
+  }
+
+
+  &:hover {
+    &::after {
+      left: 0;
+    }
+
+    &::before {
+      right: 0;
+    }
+  }
+
+  &:hover &__text {
+    font-weight: 600;
+    
+    &::after {
+      top: 0;
+    }
+
+    &::before {
+      bottom: 0;
+    }
+  }
+
+
+  &__text {
+    text-transform: uppercase;
+    font-weight: 600;
+
+    &::after {
+      @include pseudo-line;
+      height: 100%;
+      width: 2px;
+      top: 100%;
+      left: 0;
+    }
+
+    &::before {
+      @include pseudo-line;
+      height: 100%;
+      width: 2px;
+      bottom: 100%;
+      right: 0;
+    }
+  }
+}

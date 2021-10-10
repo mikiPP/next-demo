@@ -1,0 +1,21 @@
+@import './sizes';
+
+@keyframes modalAppear {
+  from {
+    top: 100%;
+  }
+
+  to {
+    top: -19%;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to{
+    transform: rotate(360deg);
+  }
+}

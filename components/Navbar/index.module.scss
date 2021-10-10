@@ -1,0 +1,38 @@
+@import '../../styles/';
+
+.navbar{
+  height: $navbar-height;
+  width: 100%;
+  background-color: $accent;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+
+  &__container {
+    height: 100%;
+    width: 100%;
+
+    @include flex-center;
+
+    & > img {
+      height: 100%;
+      object-fit: contain;
+      padding: $size-md $size-lg;
+      transition: transform .25s;
+
+      &:hover {
+        transform: translateY(-$size-sm);
+      }
+    }
+  }
+
+  
+  &__title {
+    font-family: $font-family-title;
+    font-weight: $font-bold;
+    font-size: $font-title;
+    color: $white;
+  }
+}

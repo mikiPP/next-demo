@@ -1,0 +1,24 @@
+@import '../../styles/';
+
+.home-page {
+
+  @include page-default;
+
+  .header {
+    min-height: calc(100vh - #{$navbar-height});
+
+    &__title {
+      padding: $size-xl 0;
+      text-align: center;
+    }
+
+    &__cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax($min-width, 1fr));
+    }
+  }
+
+  .slider-wrapper {
+    height: calc(100vh - #{$navbar-height});
+  }
+}

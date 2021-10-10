@@ -1,0 +1,23 @@
+@import '../../styles/';
+
+.login-page {
+  @include page-default;
+
+  display: grid;
+  place-items: center;
+
+
+  .form{
+    text-align: center;
+
+    min-width: $min-width;
+    width: 50%;
+    padding: $size-lg $size-xl;
+
+
+    &__title {
+      padding: $size-xl 0;
+      color: $accent;
+    }
+  }
+}

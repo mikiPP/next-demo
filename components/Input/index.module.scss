@@ -1,0 +1,40 @@
+@import '../../styles/';
+
+.input {
+  position: relative;
+  padding: $size-xl 0;
+
+  &__label {
+    @include abs-center;
+    left: 5rem;
+    color: $secondary;
+    font-weight: $font-bold;
+    transition: top .5s, left .5s, transform .5s,color .5s .25s;
+  }
+
+  &__tag {
+    width: 100%;
+    color: $accent;
+    padding: $size-md $size-lg;
+    border: 1px solid $secondary;
+    border-radius: $size-lg;
+
+    &:focus {
+      border: 1px solid $accent;
+      transition: all .5s;
+    }
+  }
+
+  .input-with-value {
+    border: 1px solid $accent;
+    transition: all .5s;
+  }
+
+
+  &__tag:focus + &__label, .label-fixed {
+    top: -$size-sm;
+    left:  -$size-lg;
+    color: $accent;
+    transform: translateX(0%);
+  }
+}
