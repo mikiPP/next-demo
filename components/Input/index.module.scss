@@ -6,10 +6,11 @@
 
   &__label {
     @include abs-center;
-    left: 5rem;
+    left: $size-lg;
+    transform: translate(0%, -50%);
     color: $secondary;
     font-weight: $font-bold;
-    transition: top .5s, left .5s, transform .5s,color .5s .25s;
+    transition: top .5s, left .5s, color .5s .25s;
   }
 
   &__tag {
@@ -30,11 +31,9 @@
     transition: all .5s;
   }
 
-
   &__tag:focus + &__label, .label-fixed {
     top: -$size-sm;
     left:  -$size-lg;
     color: $accent;
-    transform: translateX(0%);
   }
 }

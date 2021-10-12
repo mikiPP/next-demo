@@ -6,16 +6,17 @@ import { LOCAL_STORAGE } from '../utils/constants';
 export const initialValue = {
   email: null,
   setEmail: () => {},
+  removeEmail: () => {},
 };
 
 const AuthContext = React.createContext(initialValue);
 
 export const AuthContextProvider = ({ children }) => {
-  const [ email, setEmail ] = useStorage('email', '', LOCAL_STORAGE);
+  const [ email, setEmail, removeEmail ] = useStorage('email', '', LOCAL_STORAGE);
 
   return (
     <AuthContext.Provider
-      value={{ email, setEmail }}
+      value={{ email, setEmail, removeEmail }}
       >
       {children}
     </AuthContext.Provider>

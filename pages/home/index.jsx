@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import React, { useContext, useEffect, useState } from 'react';
+import Router from 'next/router';
 
 import { getPosts } from '../../api/todo';
 import Slider from '../../components/Slider';
@@ -10,6 +11,8 @@ import { isEmpty } from '../../utils/functions';
 
 import styles from './index.module.scss';
 import { ZERO } from '../../utils/constants';
+import Button from '../../components/Button';
+import { LOGIN_URL } from '../../utils/urls';
 
 const images = [ 'https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?cs=srgb&dl=pexels-antonio-batini%C4%87-4164418.jpg&fm=jpg', 'https://images.pexels.com/photos/325111/pexels-photo-325111.jpeg?cs=srgb&dl=pexels-marc-mueller-325111.jpg&fm=jpg', 'https://images.pexels.com/photos/52608/pexels-photo-52608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260', 'https://images.pexels.com/photos/574073/pexels-photo-574073.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' ];
 
@@ -37,6 +40,10 @@ const HomePage = () => {
     <div className={styles["home-page"]}>
       <header className={styles.header} >
         <h1 className={styles.header__title}> Hi {auth.email || 'Guest'} ! </h1>
+        <div className={styles.header__buttons}>
+          <Button text="Remove email" onClick={auth.removeEmail} disabled={!auth.email}/>
+          <Button text="Add email" onClick={() => Router.push(LOGIN_URL)} disabled={!!auth.email}/>
+        </div>
 
         {loading && <Spinner />}
 

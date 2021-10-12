@@ -6,6 +6,12 @@
 
   .header {
     min-height: calc(100vh - #{$navbar-height});
+    padding: 0 $size-lg;
+
+    &__buttons {
+      display: flex;
+      justify-content: center;
+    }
 
     &__title {
       padding: $size-xl 0;
